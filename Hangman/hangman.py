@@ -40,7 +40,8 @@ def display_answer(answer):
 
 def main():
     answer = random.choice(words)
-    print(answer)
+    hint = ["_"] * len(answer)
+    print(hint)
 
 if __name__ == "__main__":
     main()
