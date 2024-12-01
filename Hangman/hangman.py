@@ -1,7 +1,8 @@
 # Hangman in Python
+# For the words I am going to use countries from around the world
 import random
 
-words = ("apple", "orange", "carrot", "broccoli", "potatoe")
+words = ("france", "belgium", "netherlands", "germany", "italy")
 
 # Dictionary of key
 hangman_art = {
@@ -38,7 +39,8 @@ def display_answer(answer):
     pass
 
 def main():
-    pass
+    answer = random.choice(words)
+    print(answer)
 
 if __name__ == "__main__":
     main()
