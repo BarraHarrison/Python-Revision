@@ -121,6 +121,8 @@ class WeatherApp(QWidget):
     def display_error(self, message):
         self.temperature_label.setStyleSheet("font-size: 25px;")
         self.temperature_label.setText(message)
+        self.emoji_label.clear()
+        self.description_label.clear()
 
     def display_weather(self, data):
         self.temperature_label.setStyleSheet("font-size: 70px;")
@@ -150,6 +152,16 @@ class WeatherApp(QWidget):
             return "😶‍🌫️"
         elif weather_id == 762:
             return "🌋"
+        elif weather_id == 771:
+            return "💨"
+        elif weather_id == 781:
+            return "🌪️"
+        elif weather_id == 800:
+            return "☀️"
+        elif 801 <= weather_id <= 804:
+            return "☁️"
+        else:
+            return ""
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
