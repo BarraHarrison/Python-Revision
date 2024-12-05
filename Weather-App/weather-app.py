@@ -31,7 +31,11 @@ class WeatherApp(QWidget):
         self.setLayout(vbox)
 
         self.city_label.setAlignment(Qt.AlignCenter)
-        # 3Hours 38Mins 54Secs
+        self.city_input.setAlignment(Qt.AlignCenter)
+        self.temperature_label.setAlignment(Qt.AlignCenter)
+        self.emoji_label.setAlignment(Qt.AlignCenter)
+        self.description_label.setAlignment(Qt.AlignCenter)
+        
 
 
 if __name__ == "__main__":
