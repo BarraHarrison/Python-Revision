@@ -1,5 +1,6 @@
 # Python Weather App
 # Weather API Key: a533ec3f00a39fc04cbbaacfd167fb09
+# API request by City Name: https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
 import sys
 import requests
@@ -12,8 +13,8 @@ class WeatherApp(QWidget):
         self.city_label = QLabel("Enter city name: ", self)
         self.city_input = QLineEdit(self)
         self.get_weather_button = QPushButton("Get Weather", self)
-        self.temperature_label = QLabel("30℃", self)
-        self.emoji_label = QLabel("☀️", self)
+        self.temperature_label = QLabel(self)
+        self.emoji_label = QLabel(self)
         self.description_label = QLabel("Sunny", self)
         self.initUI()
 
@@ -36,7 +37,57 @@ class WeatherApp(QWidget):
         self.emoji_label.setAlignment(Qt.AlignCenter)
         self.description_label.setAlignment(Qt.AlignCenter)
         
+        self.city_label.setObjectName("city_label")
+        self.city_input.setObjectName("city_input")
+        self.get_weather_button.setObjectName("get_weather_button")
+        self.temperature_label.setObjectName("temperature_label")
+        self.emoji_label.setObjectName("emoji_label")
+        self.description_label.setObjectName("description_label")
 
+        self.setStyleSheet("""
+        QLabel, QPushButton {
+                           font-family: calibri;
+        }
+        QLabel#city_label {
+                           font-size: 35px;
+                           font-style: italic;
+        }
+        QLineEdit#city_input {
+                           font-size: 40px;
+        }
+        QPushButton#get_weather_button {
+                           font-size: 30px;
+                           font-weight: bold;
+        }
+        QLabel#temperature_label {
+                           font-size: 70px;
+        }
+        QLabel#emoji_label {
+                           font-size: 100px;
+                           font-family: Segoe UI emoji;
+        }
+        QLabel#description_label {
+                           font-size: 50px;
+        }
+""")
+        
+        self.get_weather_button.clicked.connect(self.get_weather)
+
+    def get_weather(self):
+        api_key = "a533ec3f00a39fc04cbbaacfd167fb09"
+        city = self.city_input.text()
+        url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+
+        response = requests.get(url)
+        data = response.json()
+
+        print(data)
+
+    def display_error(self, message):
+        pass
+
+    def display_weather(self, data):
+        pass
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
