@@ -1,6 +1,4 @@
 # Python Weather App
-# Weather API Key: a533ec3f00a39fc04cbbaacfd167fb09
-# API request by City Name: https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
 import sys
 import requests
