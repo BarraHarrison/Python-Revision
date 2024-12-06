@@ -54,6 +54,8 @@ class WeatherApp(QWidget):
         }
         QLineEdit#city_input {
                            font-size: 40px;
+                           height: 60px;
+                           padding: 10px;
         }
         QPushButton#get_weather_button {
                            font-size: 30px;
