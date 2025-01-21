@@ -50,6 +50,15 @@ def withdraw(balance, transactions):
         print(INVALID_AMOUNT)
         return balance
 
+def view_transactions(transactions):
+    print("**************************\nTransaction History")
+    if not transactions:
+        print("No transactions yet.")
+    else:
+        for i, transaction in enumerate(transactions, 1):
+            print(f"{i}. {transaction}")
+    print("**************************")
+
 def main():
     balance = 0
     is_running = True
