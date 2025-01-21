@@ -1,5 +1,21 @@
 # Python Banking Program
 
+# Constants
+MENU = """
+**************************
+    Banking Program
+**************************
+1. Show Balance
+2. Deposit
+3. Withdraw
+4. View Transactions
+5. Exit
+**************************
+"""
+INVALID_CHOICE = "That is not a valid choice. Please enter a number between 1 and 5."
+INVALID_AMOUNT = "Invalid Amount. Please enter a positive number."
+INSUFFICIENT_FUNDS = "Insufficient funds to complete the withdrawal"
+
 def show_balance(balance):
     print("**************************")
     print(f"Your balance is ${balance:.2f}")
