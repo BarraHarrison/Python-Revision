@@ -17,26 +17,14 @@ INVALID_AMOUNT = "Invalid Amount. Please enter a positive number."
 INSUFFICIENT_FUNDS = "Insufficient funds to complete the withdrawal"
 
 def show_balance(balance):
-    print("**************************")
-    print(f"Your balance is ${balance:.2f}")
-    print("**************************")
+    print(f"**************************\nYour balance is ${balance:.2f}\n**************************")
 
 def deposit(balance):
-    print("**************************")
-    amount = float(input("Enter an amount to be deposited: "))
-    print("**************************")
+   try:
+       pass
+   except:
+       pass
 
-    if amount < 0:
-        print("**************************")
-        print("That is not a valid amount")
-        print("**************************")
-        return balance
-    else:
-        balance += amount
-        print("**************************")
-        print(f"${amount:.2f} has been deposited.")
-        print("**************************")
-        return balance
 
 def withdraw(balance):
     print("**************************")
