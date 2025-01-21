@@ -19,32 +19,36 @@ INSUFFICIENT_FUNDS = "Insufficient funds to complete the withdrawal"
 def show_balance(balance):
     print(f"**************************\nYour balance is ${balance:.2f}\n**************************")
 
-def deposit(balance):
-   try:
-       pass
-   except:
-       pass
+def deposit(balance, transactions):
+    try:
+        amount = float(input("Enter an amount to be deposited: "))
+        if amount <= 0:
+            print(INVALID_AMOUNT)
+            return balance
+        balance += amount
+        transactions.append(f"Deposited: ${amount:.2f}")
+        print(f"${amount:.2f} has been deposited.")
+        return balance
+    except ValueError:
+        print(INVALID_AMOUNT)
+        return balance
 
 
-def withdraw(balance):
-    print("**************************")
-    amount = float(input("Enter the amount to be withdrawn: "))
-    print("**************************")
-
-    if amount > balance:
-        print("**************************")
-        print("Insufficient funds")
-        print("**************************")
-    elif amount < 0:
-        print("**************************")
-        print("Amount must be greater than 0")
-        print("**************************")
-    else:
-        balance -= amount
-        print("**************************")
-        print(f"${amount:.2f} has been withdrawn.")
-        print("**************************")
-    return balance
+def withdraw(balance, transactions):
+    try:
+        amount = float(input("Enter the amount to be withdrawn: "))
+        if amount <= 0:
+            print(INVALID_AMOUNT)
+        elif amount > balance:
+            print(INSUFFICIENT_FUNDS)
+        else:
+            balance -= amount
+            transactions.append(f"Withdrew: ${amount:.2f}")
+            print(f"${amount:.2f} has been withdrawn.")
+        return balance
+    except ValueError:
+        print(INVALID_AMOUNT)
+        return balance
 
 def main():
     balance = 0
