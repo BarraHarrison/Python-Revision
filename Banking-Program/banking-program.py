@@ -60,36 +60,24 @@ def view_transactions(transactions):
     print("**************************")
 
 def main():
-    balance = 0
-    is_running = True
-
-    while is_running:
-        print("**************************")
-        print("      Banking Program     ")
-        print("**************************")
-        print("1. Show Balance")
-        print("2. Deposit")
-        print("3. Withdraw")
-        print("4. Exit")
-        print("**************************")
-        choice = input("Enter your choice (1-4): ")
-
+    balance = 0.0
+    transactions = []
+    while True:
+        print(MENU)
+        choice = input("Enter your choice (1-5): ")
         if choice == "1":
             show_balance(balance)
         elif choice == "2":
-            balance = deposit(balance)
+            balance = deposit(balance, transactions)
         elif choice == "3":
-            balance = withdraw(balance)
+            balance = withdraw(balance, transactions)
         elif choice == "4":
-            is_running = False
+            view_transactions(transactions)
+        elif choice == "5":
+            print("**************************\nThank you! Have a nice day.\n**************************")
+            break
         else:
-            print("**************************")
-            print("That is not a valid choice")
-            print("**************************")
-
-    print("**************************")
-    print("Thank you! Have a nice day")
-    print("**************************")
+            print(INVALID_CHOICE)
 
 if __name__ == '__main__':
     main()
