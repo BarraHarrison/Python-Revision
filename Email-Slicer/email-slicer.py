@@ -1,9 +1,7 @@
 # Email slicer program
-# String indexing
 
-email = input("Enter your email: ")
-index = email.index("@")
-username = email[:index]
-domain = email[index + 1:]
+def email_slicer():
+    pass
 
-print(f"Your username is {username} and domain is {domain}")
+if __name__ == "__main__":
+    email_slicer()
