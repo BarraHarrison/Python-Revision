@@ -7,7 +7,7 @@ def welcome_message():
     print("Type 'exit' at any time to quit the program.")
 
 
-def email_slicer():
+def slice_email():
     print("Welcome to the email slicer program!")
 
     while True:
@@ -30,7 +30,15 @@ def email_slicer():
             print(f"Error: {error}. Please provide a valid email address.")
 
 def email_statistics():
-    pass
+    """Provides statistics about the email."""
+    username, domain = slice_email(email)
+    if username:
+        return {
+            "username_length": len(username),
+            "domain_length": len(domain),
+            "total_length": len(email)
+        }
+    return {}
 
 def main():
     pass
