@@ -14,5 +14,13 @@ def email_slicer():
             print("Invalid email address. Please try again.")
             continue
 
+        try:
+            username, domain = email.split("@")
+            if not username or not domain:
+                raise ValueError("Incomplete email address.")
+            print(f"Your username is {username} and the domain is {domain}.")
+        except ValueError as error:
+            print(f"Error: {error}. Please provide a valid email address.")
+
 if __name__ == "__main__":
     email_slicer()
