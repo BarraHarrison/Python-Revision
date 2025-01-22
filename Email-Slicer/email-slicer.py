@@ -1,4 +1,5 @@
 # Email slicer program
+# The email slcier program has been refactored and enhanced since I created the file in December
 
 def email_slicer():
     print("Welcome to the email slicer program!")
