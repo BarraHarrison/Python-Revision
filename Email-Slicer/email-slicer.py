@@ -7,16 +7,23 @@ def welcome_message():
     print("Type 'exit' at any time to quit the program.")
 
 
-def slice_email():
+def slice_email(email):
     """Slices the email into the username and the domain"""
     try:
-        pass
-    except:
-        pass
+        if "@" not in email or email.count("@") != 1:
+            raise ValueError("Invalid email address.")
+
+        username, domain = email.split("@")
+        if not username or not domain:
+            raise ValueError("Incomplete email address.")
+        
+        return username, domain
+    except ValueError as error:
+        return None, str(error)
 
 
 
-def email_statistics():
+def email_statistics(email):
     """Provides statistics about the email."""
     username, domain = slice_email(email)
     if username:
