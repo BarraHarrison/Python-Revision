@@ -35,7 +35,26 @@ def email_statistics(email):
     return {}
 
 def main():
-    pass
+    welcome_message()
+
+    while True:
+        email = input("Enter your email or type 'exit' to quit: ").strip()
+
+        if email.lower() == "exit":
+            print("Thank you for using the email slicer program. Bye Bye!")
+            break
+
+        username, domain = slice_email(email)
+
+        if username:
+            print(f"Your username is '{username}' and the domain is '{domain}'.")
+            stats = email_statistics(email)
+            print("Email Statistics:")
+            print(f"- Username Length: {stats['username_length']} characters")
+            print(f"- Domain Length: {stats['domain_length']} characters")
+            print(f"- Total Email Length: {stats['total_length']} characters")
+        else:
+            print(f"Error: {domain}. Please provide a valid email address.")
 
 if __name__ == "__main__":
     main()
