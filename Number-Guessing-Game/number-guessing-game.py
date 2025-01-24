@@ -20,7 +20,7 @@ def number_guessing_game(scoreboard):
             else:
                 print("Invalid choice. Please enter 1, 2 or 3.")
 
-    def update_scoreboard(player_name, scoreboard, guesses):
+    def update_scoreboard(scoreboard, player_name, guesses):
         """Update the scoreboard with the player's scores."""
         if not isinstance(scoreboard, dict):
             raise TypeError("Scoreboard must be a dictionary.")
