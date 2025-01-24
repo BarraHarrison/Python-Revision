@@ -1,6 +1,25 @@
 import random
 
 def number_guessing_game():
+    def get_difficulty():
+        """Prompt the user to choose a difficulty level and return the range"""
+        print("Select a difficulty level:")
+        print("1. Easy (1-10)")
+        print("2. Medium (1-50)")
+        print("3. Hard (1-100)")
+
+        while True:
+            choice = input("Enter 1, 2 or 3: ").strip()
+            if choice == "1":
+                return 1, 10
+            if choice == "2":
+                return 1, 50
+            if choice == "3":
+                return 1, 100
+            else:
+                print("Invalid choice. Please enter 1, 2 or 3.")
+
+    # Setting up the game based on difficulty
     lowest_number = 1
     highest_number = 100
     answer = random.randint(lowest_number, highest_number)
