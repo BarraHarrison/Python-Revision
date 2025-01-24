@@ -3,7 +3,7 @@ import random
 def number_guessing_game(scoreboard):
     def get_difficulty():
         """Prompt the user to choose a difficulty level and return the range"""
-        print("Weclome to the Python Number Guessing Game")
+        print("Welcome to the Python Number Guessing Game")
         print("Select a difficulty level:")
         print("1. Easy (1-10)")
         print("2. Medium (1-50)")
@@ -22,6 +22,8 @@ def number_guessing_game(scoreboard):
 
     def update_scoreboard(player_name, scoreboard, guesses):
         """Update the scoreboard with the player's scores."""
+        if not isinstance(scoreboard, dict):
+            raise TypeError("Scoreboard must be a dictionary.")
         if player_name in scoreboard:
             scoreboard[player_name] = min(scoreboard[player_name], guesses)
         else:
