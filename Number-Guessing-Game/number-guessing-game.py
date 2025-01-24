@@ -3,6 +3,7 @@ import random
 def number_guessing_game():
     def get_difficulty():
         """Prompt the user to choose a difficulty level and return the range"""
+        print("Weclome to the Python Number Guessing Game")
         print("Select a difficulty level:")
         print("1. Easy (1-10)")
         print("2. Medium (1-50)")
@@ -20,13 +21,11 @@ def number_guessing_game():
                 print("Invalid choice. Please enter 1, 2 or 3.")
 
     # Setting up the game based on difficulty
-    lowest_number = 1
-    highest_number = 100
+    lowest_number, highest_number = get_difficulty()
     answer = random.randint(lowest_number, highest_number)
     guesses = 0
 
-    print("Weclome to the Python Number Guessing Game")
-    print(f"Guess a number between {lowest_number} and {highest_number}")
+    print(f"\nGuess a number between {lowest_number} and {highest_number}")
 
     while True:
         guess = input("Enter your guess: ").strip()
@@ -50,4 +49,9 @@ def number_guessing_game():
             break
 
 if __name__ == "__main__":
-    number_guessing_game()
+    while True:
+        number_guessing_game()
+        play_again = input("n\Would you like to play again? (yes/no): ").strip().lower()
+        if play_again not in ("yes", "y"):
+            print("Thanks for playing! Goodbye!")
+            break
