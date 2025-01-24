@@ -20,6 +20,12 @@ def number_guessing_game():
             else:
                 print("Invalid choice. Please enter 1, 2 or 3.")
 
+    def update_scoreboard():
+        pass
+
+    def display_scoreboard():
+        pass
+
     # Setting up the game based on difficulty
     lowest_number, highest_number = get_difficulty()
     answer = random.randint(lowest_number, highest_number)
