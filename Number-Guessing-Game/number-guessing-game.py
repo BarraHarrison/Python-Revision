@@ -1,6 +1,6 @@
 import random
 
-def number_guessing_game():
+def number_guessing_game(scoreboard):
     def get_difficulty():
         """Prompt the user to choose a difficulty level and return the range"""
         print("Weclome to the Python Number Guessing Game")
@@ -20,11 +20,20 @@ def number_guessing_game():
             else:
                 print("Invalid choice. Please enter 1, 2 or 3.")
 
-    def update_scoreboard():
-        pass
+    def update_scoreboard(player_name, scoreboard, guesses):
+        """Update the scoreboard with the player's scores."""
+        if player_name in scoreboard:
+            scoreboard[player_name] = min(scoreboard[player_name], guesses)
+        else:
+            scoreboard[player_name] = guesses
 
-    def display_scoreboard():
-        pass
+
+    def display_scoreboard(scoreboard):
+        """Display the scoreboard with the best scores coming first"""
+        print("\n--- Scoreboard ---")
+        for player, score in sorted(scoreboard.items(), key=lambda item: item[1]):
+            print(f"{player}: {score} guesses")
+        print("--------------------\n")
 
     # Setting up the game based on difficulty
     lowest_number, highest_number = get_difficulty()
