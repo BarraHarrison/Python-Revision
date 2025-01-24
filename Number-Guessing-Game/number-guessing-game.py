@@ -41,6 +41,7 @@ def number_guessing_game(scoreboard):
     guesses = 0
 
     print(f"\nGuess a number between {lowest_number} and {highest_number}")
+    player_name = input("Enter your name: ").strip()
 
     while True:
         guess = input("Enter your guess: ").strip()
@@ -59,13 +60,16 @@ def number_guessing_game(scoreboard):
         elif guess > answer:
             print("Too high! Try again!")
         else:
-            print(f"CORRECT! The answer was {answer}")
+            print(f"CORRECT! Good job {player_name}! The answer was {answer}")
             print(f"You guessed it in {guesses} tries.")
+            update_scoreboard(scoreboard, player_name, guesses)
+            display_scoreboard(scoreboard)
             break
 
 if __name__ == "__main__":
+    scoreboard = {}
     while True:
-        number_guessing_game()
+        number_guessing_game(scoreboard)
         play_again = input("n\Would you like to play again? (yes/no): ").strip().lower()
         if play_again not in ("yes", "y"):
             print("Thanks for playing! Goodbye!")
